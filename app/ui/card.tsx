@@ -1,10 +1,13 @@
+"use client"
 import React from 'react';
 import { JSX, forwardRef } from 'react';
 
-type CardProperties = {} & React.DetailedHTMLProps<
+type CardProperties = Omit<{
+  text: string
+} & React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
->;
+>, "children">;
 
 export default forwardRef<HTMLDivElement, CardProperties>(function Card(
   { ...props }: CardProperties,
@@ -27,6 +30,8 @@ export default forwardRef<HTMLDivElement, CardProperties>(function Card(
 
         ...((props.style as any) ?? {}),
       }}
-    ></div>
+    >
+      {props.text}
+    </div>
   );
 });

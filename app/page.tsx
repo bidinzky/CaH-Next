@@ -1,65 +1,11 @@
-import Image from 'next/image'
-import Card from './ui/card'
+import Link from "next/link";
 
 export default function Home() {
+  //console.log(await listPackages());
   return (
-    <main className="">
-      <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 2fr',
-        gridTemplateRows: '1fr 1fr',
-        height: '100dvh',
-        width: '100dvw',
-        border: '1px solid black',
-        padding: '2.5dvmin',
-        gap: '2.5dvmin',
-        background: '#D3D3D3',
-      }}
-    >
-      <Card
-        style={{
-          background: '#202020',
-          color: 'white',
-          fontSize: '7dvmin',
-          gridRow: '1 / -1',
-        }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales.
-      </Card>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateRows: '1fr',
-          gridAutoFlow: 'column',
-          gridAutoColumns: 'minmax(calc(33% - 1.66dvmin ), 1fr)',
-          gap: '3dvmin',
-          height: '100%',
-          overflowX: 'auto',
-          scrollSnapType: 'x mandatory',
-          scrollSnapAlign: 'center',
-          scrollBehavior: 'smooth',
-          gridRow: '2 / -2',
-        }}
-      >
-        {Array(16)
-          .fill(1)
-          .map((_, i) => (
-            <Card
-              key={i}
-              style={{
-                aspectRatio: '1',
-                fontSize: 'dvmin',
-                scrollSnapAlign: 'center',
-                background: '#ECECEC',
-              }}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-              sodales.
-            </Card>
-          ))}
-      </div>
-    </div>
+    <main className="grid grid-cols-[auto] justify-center items-center h-[100dvh] w-[100dvw] border border-black border-solid p-[2.5dvmin] gap-[2.5dvmin] bg-gray-300">
+        <Link href="/game/createGame" className="border border-green-800 p-4 bg-green-700 hover:bg-green-500 text-white text-2xl">Create Game</Link>
+        <Link href="/game/joinGame" className="border border-blue-800 p-4 bg-blue-700 hover:bg-blue-500 text-white text-2xl">Join Game</Link>
     </main>
-  )
+  );
 }
